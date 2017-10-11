@@ -20,7 +20,7 @@ images provided in the `/images` directory.
 ### Important
 
 Your solution should demonstrate use of OO design principles, particularly
-[SOLID](https://en.wikipedia.org/wiki/SOLID_(object-oriented_design) and you
+[SOLID](https://en.wikipedia.org/wiki/SOLID_(object-oriented_design)) and you
 may choose to use any additional design patterns.
 
 Additionally you may wish to make use of features provided by
