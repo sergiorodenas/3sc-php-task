@@ -6,39 +6,10 @@ use \DateTimeInterface;
 
 interface DirectoryInterface
 {
-  /**
-   * @return string
-   */
-  public function getName();
-
-  /**
-   * @param string $name
-   *
-   * @return $this
-   */
-  public function setName($name);
-
-  /**
-   * @return DateTimeInterface
-   */
-  public function getCreatedTime();
-
-  /**
-   * @param DateTimeInterface $created
-   *
-   * @return $this
-   */
-  public function setCreatedTime(DateTimeInterface $created);
-
-  /**
-   * @return string
-   */
-  public function getPath();
-
-  /**
-   * @param string $path
-   *
-   * @return $this
-   */
-  public function setPath($path);
+  public function getName(): String;
+  public function setName(String $name): self;
+  public function getCreatedTime(): DateTimeInterface;
+  public function setCreatedTime(DateTimeInterface $created): self;
+  public function getPath(): String;
+  public function setPath(String $path): self;
 }
