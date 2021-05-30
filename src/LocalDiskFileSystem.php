@@ -2,17 +2,27 @@
 
 namespace Tsc\CatStorageSystem;
 
+use SplFileObject;
+use DateTime;
+
 class LocalDiskFileSystem implements FileSystemInterface
 {
     public function createFile(FileInterface $file, DirectoryInterface $parent): FileInterface {
-
+        $createdFile = new SplFileObject($parent->getPath().DIRECTORY_SEPARATOR.$file->getName());
+        
+        return (new LocalDiskFile)
+            ->setName($file->getName())
+            ->setSize($createdFile->getSize())
+            ->setCreatedTime((new Datetime)->setTimestamp($createdFile->getCTime()))
+            ->setModifiedTime((new Datetime)->setTimestamp($createdFile->getMTime()))
+            ->setParentDirectory($parent);
     }
 
     public function updateFile(FileInterface $file): FileInterface {
 
     }
 
-    public function renameFile(FileInterface $file, $newName): FileInterface {
+    public function renameFile(FileInterface $file, String $newName): FileInterface {
 
     }
 
@@ -36,16 +46,13 @@ class LocalDiskFileSystem implements FileSystemInterface
 
     }
 
-
     public function getDirectoryCount(DirectoryInterface $directory): int {
 
     }
 
-
     public function getFileCount(DirectoryInterface $directory): int {
 
     }
-
 
     public function getDirectorySize(DirectoryInterface $directory): int {
 
