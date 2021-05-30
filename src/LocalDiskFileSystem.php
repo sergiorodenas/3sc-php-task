@@ -127,6 +127,7 @@ class LocalDiskFileSystem implements FileSystemInterface
             if($element->isDot()) continue;
 
             if($element->getType() === 'dir'){
+                // Recursive
                 $size += $this->getDirectorySize((new LocalDiskDirectory)->setPath($element->getRealPath()));
             }
 
